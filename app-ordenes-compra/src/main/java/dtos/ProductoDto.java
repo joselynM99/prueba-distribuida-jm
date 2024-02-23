@@ -1,0 +1,16 @@
+package dtos;
+
+import jakarta.persistence.Column;
+import lombok.Data;
+import lombok.ToString;
+
+import java.math.BigDecimal;
+
+@Data
+@ToString
+public class ProductoDto {
+
+    private Integer id;
+    private String nombre;
+    private BigDecimal precio;
+}

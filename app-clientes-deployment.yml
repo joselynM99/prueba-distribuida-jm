@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-clientes
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: app-clientes
+  template:
+    metadata:
+      labels:
+        app: app-clientes
+    spec:
+      containers:
+        - name: app-clientes
+          image: nali1312/app-clientes
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-clientes-service
+spec:
+  type: ClusterIP
+  selector:
+    app: app-clientes
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+
+
+
